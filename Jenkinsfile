@@ -19,16 +19,7 @@ pipeline {
 
 			}
 		}
-		//stage ('Deploy To Prod'){
-  			//input{
-    			//message "Do you want to proceed for production deployment?"
- 			// }
-   		// steps {
-              //  sh 'echo "Deploy into Prod"'
-		
-             // }
-        }
-		stage('Deploy') {
+		       		stage('Deploy') {
 			steps{
 			echo "Deploying"
 			deploy adapters: [tomcat7(credentialsId: 'tomcat', path: '', url: 'http://localhost:8085/')], contextPath: 'http://localhost:8085/', war: '"**/*.war"'
